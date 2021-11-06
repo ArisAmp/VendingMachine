@@ -6,7 +6,7 @@ import java.util.Objects;
 @Entity
 @Table
 public class Product {
-    @Id
+
 //    @SequenceGenerator(
 //            name = "vending_sequence",
 //            sequenceName = "vending_sequence",
@@ -16,6 +16,7 @@ public class Product {
 //            strategy = GenerationType.SEQUENCE,
 //            generator = "vending_sequence"
 //    )
+    @Id
     @GeneratedValue
     private Long id;
 
@@ -27,8 +28,6 @@ public class Product {
 
     public Product() {
     }
-
-
 
     public Product(String name, Integer quantity, double price) {
         this.name = name;

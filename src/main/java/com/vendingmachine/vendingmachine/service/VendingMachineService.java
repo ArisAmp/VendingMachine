@@ -7,8 +7,11 @@ import java.util.List;
 
 public interface VendingMachineService {
 
-    List<Product> fetchAllProducts();
+    List<Product> getAllProducts();
 
-    Product saveProduct(Product p);
+    Product addProduct(Product p);
 
+    void deleteProduct(Long productId);
+
+    void updateProduct(Long productId, String name, Integer quantity, Double price);
 }
