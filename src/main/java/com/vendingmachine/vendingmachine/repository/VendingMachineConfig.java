@@ -1,5 +1,6 @@
 package com.vendingmachine.vendingmachine.repository;
 
+import com.vendingmachine.vendingmachine.model.Balance;
 import com.vendingmachine.vendingmachine.model.Product;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +12,7 @@ import java.util.List;
 public class VendingMachineConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(VendingMachineRepository repository){
+    CommandLineRunner commandLineRunner(VendingMachineRepository repository, BalanceRepository balanceRepository){
         return args -> {
             Product snickers = new Product(
                     "Snickers",
@@ -25,8 +26,10 @@ public class VendingMachineConfig {
                     "Water",
                     12,
                     1.2);
+            Balance balance = new Balance(5);
 
             repository.saveAll(List.of(snickers, coke, water));
+            balanceRepository.save(balance);
         };
     }
 }

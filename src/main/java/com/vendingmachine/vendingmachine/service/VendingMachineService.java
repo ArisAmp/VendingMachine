@@ -1,7 +1,7 @@
 package com.vendingmachine.vendingmachine.service;
 
+import com.vendingmachine.vendingmachine.model.Balance;
 import com.vendingmachine.vendingmachine.model.Product;
-import com.vendingmachine.vendingmachine.repository.VendingMachineRepository;
 
 import java.util.List;
 
@@ -11,7 +11,15 @@ public interface VendingMachineService {
 
     Product addProduct(Product p);
 
-    void deleteProduct(Long productId);
+    void deleteProduct(Long productID);
 
-    void updateProduct(Long productId, String name, Integer quantity, Double price);
+    void updateProduct(Long productID, String name, Integer quantity, Double price);
+
+    Product getProduct(Long productID);
+
+    void addBalance(double amount);
+
+    void dispenseItem(Long id);
+
+    Balance getBalance();
 }
